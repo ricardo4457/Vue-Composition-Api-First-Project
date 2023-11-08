@@ -1,20 +1,13 @@
 <template>
   <main>
     <div class="posts">
-      <p>Posts</p>
-      <textarea v-autofocus />
+      <p>Post {{ $route.params.id }}</p> <!--this the way to call url params template to get current -->
+      <p>
+        <RouterLink to="/posts">&lt; Back</RouterLink>
+      </p>
     </div>
   </main>
 </template>
-<script lang="ts" setup>
-// Local Custom Directives 
-
-
-
-const vAutoFocus = {
-  onmounted: (el: any) => el.focus() // we can create were own hooks
-}
-</script>
 <style>
 @media (min-width: 1024px) {
   .posts {
