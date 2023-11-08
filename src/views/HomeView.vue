@@ -3,38 +3,42 @@
 
     <h3>{{ counterData.title }}:</h3>
     <div class="container">
-      <button @click="decreaseCounter" class="btn">-</button>
+      <button @click="decreaseCounter(1)" class="btn">-</button>
+      <button @click="decreaseCounter(2)" class="btn">- -</button>
       <span class="counter">{{ counterData.count }}</span>
-      <button @click="increaseCounter" class="btn">+</button>
+      <button @click="increaseCounter(1, $event)" class="btn">+</button> <!-- We cam $event to pass the moment is clicked event  -->
+      <button @click="increaseCounter(2, $event)" class="btn">++</button>
     </div>
-
-    <div class="edit">
-      <h4>Edit Counter Title:</h4>
-      <input v-model="counterData.title" type="text">
-      <!-- With v-model we can do Twowaydatabinding to change the variavel at the same time is on page -->
-    </div>
+    <h4>Edit Counter Title:</h4>
+    <input v-model="counterData.title" type="text">
+    <!-- With v-model we can do Twowaydatabinding to change the variavel at the same time is on page -->
   </div>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 
+// Variables (Non-reactive)
+const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
+
+// Variables (Ref)
 const counter = ref(0), // Simple Ref variable on Composion Api use counter.value to manipulate the counter
   counterTitle = ref('My Counter')
 
-const appTitle = ' The Title' // Non-reactive Data that does not change anything on template
-
-const increaseCounter = () => {
-  counterData.count++
-}
-
+// Variables (Reactive Objects)
 const counterData = reactive({   // Reactive Objects
   count: 0,
   title: "My Counter"
 })
 
-const decreaseCounter = () => {
+// Methods
+
+const increaseCounter = (amount: number, event: any) => { // Increment the counter by what amount we want to increase
+  counterData.count += amount
+}
+
+const decreaseCounter = (amount: number) => { // Reduce the counter by what amount we want to increase
   if (counterData.count > 0) {
-    counterData.count--
+    counterData.count -= amount
   } else {
     counterData.count = 0
   }
