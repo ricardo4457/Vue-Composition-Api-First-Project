@@ -22,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 // Imports
-import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
+import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -71,6 +71,7 @@ const decreaseCounter = (amount: number) => { // Reduce the counter by what amou
 
 // Lifecycle Hooks
 
+// Mounted Hooks status of load of component
 onBeforeMount(() => {
 
   console.log("onBeforeMount")
@@ -92,6 +93,20 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
 
   console.log("onUnmounted")
+
+});
+
+// Activated Hooks Wen component is  keeped alive
+
+onActivated(() => {
+
+  console.log("Activated")
+
+});
+
+onDeactivated(() => {
+
+  console.log("Deactivated")
 
 });
 
