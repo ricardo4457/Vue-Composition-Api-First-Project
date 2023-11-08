@@ -3,7 +3,14 @@
         <div class="modals">
             <p>Modal</p>
             <button @click="showModal = true">Show Modal</button>
-            <Modal v-if="showModal"/>
+            <Modal v-if="showModal">
+                <template #title>MY NEW TILTLE</template> <!-- fills slot of older title -->
+                <!-- implementation of html in slot to children -->
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, non, in consequatur consectetur
+                    error
+                    vero itaque, optio nam praesentium veritatis aliquam cumque earum culpa quisquam illo ipsam labore
+                    voluptatibus? Aspernatur.</p>
+            </Modal>
         </div>
     </main>
 </template>
