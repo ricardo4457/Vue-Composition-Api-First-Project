@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import PostsView from '../views/PostsView.vue'
+import ModalsView from '../views/ModalsView.vue'
+import PostsDetailView from '../views/PostsDetailView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -13,19 +15,19 @@ const router = createRouter({
       path: '/posts',
       name: 'posts',
 
-      component: () => import('../views/PostsView.vue')
+      component: PostsView
     },
     {
       path: '/postDetail/:id', // pass a parameter of post to know the post
       name: 'postDetail',
 
-      component: () => import('../views/PostsDetailView.vue')
+      component: PostsDetailView
     },
     {
       path: '/modals',
       name: 'modals',
 
-      component: () => import('../views/ModalsView.vue')
+      component: ModalsView
     },
   ]
 })

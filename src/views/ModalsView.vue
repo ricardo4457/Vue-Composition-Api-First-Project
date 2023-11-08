@@ -3,7 +3,7 @@
         <div class="modals">
             <p>Modal</p>
             <button @click="showModal = true">Show Modal</button>
-
+            <Modal v-if="showModal"/>
         </div>
     </main>
 </template>
