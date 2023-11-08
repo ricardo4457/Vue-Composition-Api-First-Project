@@ -15,14 +15,14 @@
 
     <div class="edit">
       <h4>Edit Counter Title:</h4>
-      <input v-model="counterData.title" type="text">
+      <input v-model="counterData.title" type="text" v-autofocus>
       <!-- With v-model we can do Twowaydatabinding to change the variavel at the same time is on page -->
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 // Imports
-import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
+import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -123,6 +123,13 @@ onUpdated(() => {
   console.log("onUpdated")
 
 });
+
+// Local Custom Directives 
+
+const vAutoFocus = {
+  onmounted: (el: any) => el.focus() // we can create were owne hooks
+}
+
 </script>
 <style >
 @media (min-width: 1024px) {
