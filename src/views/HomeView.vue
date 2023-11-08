@@ -21,7 +21,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref, computed, watch } from 'vue'
+// Imports
+import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -67,6 +68,33 @@ const decreaseCounter = (amount: number) => { // Reduce the counter by what amou
     counterData.count = 0
   }
 }
+
+// Lifecycle Hooks
+
+onBeforeMount(() => {
+
+  console.log("onBeforeMount")
+
+});
+
+onMounted(() => {
+
+  console.log("onMounted")
+
+});
+
+onBeforeUnmount(() => {
+
+  console.log("onBeforeUnmount")
+
+});
+
+onUnmounted(() => {
+
+  console.log("onUnmounted")
+
+});
+
 </script>
 <style >
 @media (min-width: 1024px) {
