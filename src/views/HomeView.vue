@@ -23,6 +23,7 @@
 <script lang="ts" setup>
 // Imports
 import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, } from 'vue'
+// import {vAutofocus} from '@/directives/vAutofocus.js' Import gobal directive
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -127,7 +128,7 @@ onUpdated(() => {
 // Local Custom Directives 
 
 const vAutoFocus = {
-  onmounted: (el: any) => el.focus() // we can create were owne hooks
+  onmounted: (el: any) => el.focus() // we can create were own hooks
 }
 
 </script>
