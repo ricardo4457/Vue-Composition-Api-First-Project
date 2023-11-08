@@ -6,8 +6,25 @@
         <RouterLink to="/posts">&lt; Back</RouterLink>
       </p>
     </div>
+    <div><button @click="showPostId">Show</button></div>
   </main>
-</template>
+</template>I
+<script lang="ts" setup>
+//Imports
+import { useRoute } from 'vue-router';
+//Variables
+
+const route = useRoute();
+
+//Methods
+
+const showPostId = () => {
+
+  alert("Is Post " + route.params.id);
+
+}
+
+</script>
 <style>
 @media (min-width: 1024px) {
   .posts {
