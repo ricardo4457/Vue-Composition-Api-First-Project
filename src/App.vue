@@ -7,15 +7,16 @@ import HelloWorld from './components/HelloWorld.vue'
   <nav>
   <RouterLink to="/">Home</RouterLink>
   <RouterLink to="/posts">Posts</RouterLink>
+  <RouterLink to="/modals">Modals</RouterLink>
 </nav>
 <RouterView />
 <!-- we can use is  onActivated, onDeactivated  if component is wrapp on this tags like this !!
   <RouterView v-slot="{ Component }">
-      <keepalive>
-        <component :is="Component" />
-      </keepalive>
-    </RouterView>
-     -->
+        <keepalive>
+          <component :is="Component" />
+        </keepalive>
+      </RouterView>
+       -->
 </template>
 
 <style scoped>
