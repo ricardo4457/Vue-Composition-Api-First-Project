@@ -22,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 // Imports
-import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
+import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -110,6 +110,19 @@ onDeactivated(() => {
 
 });
 
+// Updated Hooks when  template updates is fired
+
+onBeforeUpdate(() => {
+
+  console.log("onBeforeUpdate")
+
+});
+
+onUpdated(() => {
+
+  console.log("onUpdated")
+
+});
 </script>
 <style >
 @media (min-width: 1024px) {
