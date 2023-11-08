@@ -21,7 +21,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref, computed } from 'vue'
+import { reactive, ref, computed, watch } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -34,6 +34,17 @@ const counter = ref(0), // Simple Ref variable on Composion Api use counter.valu
 const counterData = reactive({   // Reactive Objects
   count: 0,
   title: "My Counter"
+})
+
+// Watcher
+
+watch(() => counterData.count, (newValue, oldValue) => {
+  if (newValue === 20) {
+    alert("count is 20")
+  }
+  if (oldValue === 3) {
+    alert("old count is 3")
+  }
 })
 
 // Computed Properties
