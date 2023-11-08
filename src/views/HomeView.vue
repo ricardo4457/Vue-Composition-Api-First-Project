@@ -22,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 // Imports
-import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, } from 'vue'
+import { nextTick, reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated, onBeforeUpdate, onUpdated, } from 'vue'
 // import {vAutofocus} from '@/directives/vAutofocus.js' Import gobal directive
 
 // Variables (Non-reactive)
@@ -60,8 +60,10 @@ const oddOrEven = computed(() => {
 
 // Methods
 
-const increaseCounter = (amount: number, event: any) => { // Increment the counter by what amount we want to increase
+const increaseCounter = async (amount: number, event: any) => { // Increment the counter by what amount we want to increase
   counterData.count += amount
+  await nextTick() // do after dom has updated
+  console.log('do something')
 }
 
 const decreaseCounter = (amount: number) => { // Reduce the counter by what amount we want to increase
