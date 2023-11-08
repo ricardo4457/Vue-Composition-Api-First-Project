@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-    <h3>{{ counterData.title }}:</h3>
+    <h3 ref="TitleElementRef">{{ counterData.title }}:</h3>
     <div class="container">
       <button @click="decreaseCounter(1)" class="btn">-</button>
       <button @click="decreaseCounter(2)" class="btn">- -</button>
@@ -27,6 +27,8 @@ import { reactive, ref, computed, watch, onBeforeMount, onMounted, onBeforeUnmou
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
+
+const TitleElementRef = ref(null)  //to access elements on template
 
 // Variables (Ref)
 const counter = ref(0), // Simple Ref variable on Composion Api use counter.value to manipulate the counter
@@ -81,7 +83,7 @@ onBeforeMount(() => {
 
 onMounted(() => {
 
-  console.log("onMounted")
+  console.log("onMounted" + TitleElementRef.value) // the calls the element on the ref
 
 });
 
