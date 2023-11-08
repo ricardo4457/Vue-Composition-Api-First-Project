@@ -6,16 +6,22 @@
       <button @click="decreaseCounter(1)" class="btn">-</button>
       <button @click="decreaseCounter(2)" class="btn">- -</button>
       <span class="counter">{{ counterData.count }}</span>
-      <button @click="increaseCounter(1, $event)" class="btn">+</button> <!-- We cam $event to pass the moment is clicked event  -->
+      <button @click="increaseCounter(1, $event)" class="btn">+</button>
+      <!-- We cam $event to pass the moment is clicked event  -->
       <button @click="increaseCounter(2, $event)" class="btn">++</button>
     </div>
-    <h4>Edit Counter Title:</h4>
-    <input v-model="counterData.title" type="text">
-    <!-- With v-model we can do Twowaydatabinding to change the variavel at the same time is on page -->
+
+    <p>This counter is {{ oddOrEven }}</p>
+
+    <div class="edit">
+      <h4>Edit Counter Title:</h4>
+      <input v-model="counterData.title" type="text">
+      <!-- With v-model we can do Twowaydatabinding to change the variavel at the same time is on page -->
+    </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 
 // Variables (Non-reactive)
 const appTitle = 'The Title' // Non-reactive Data that does not change anything on template
@@ -28,6 +34,13 @@ const counter = ref(0), // Simple Ref variable on Composion Api use counter.valu
 const counterData = reactive({   // Reactive Objects
   count: 0,
   title: "My Counter"
+})
+
+// Computed Properties
+
+const oddOrEven = computed(() => {
+  if (counterData.count % 2 === 0) return 'even'
+  else return 'odd'
 })
 
 // Methods
