@@ -6,7 +6,7 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <nav>
   <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/about">About</RouterLink>
+  <RouterLink to="/posts">Posts</RouterLink>
 </nav>
 <RouterView />
 <!-- we can use is  onActivated, onDeactivated  if component is wrapp on this tags like this !!
