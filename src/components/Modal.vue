@@ -1,12 +1,13 @@
 <template>
     <Teleport to="body"> <!-- this tag serves to move a element on html to diferent location -->
-        <div>
+        <div v-if="modelValue">
 
             <h1>{{ title }}</h1>
             <!--this serves to pass the content to other component were we shpuld specificy what we want -->
             <slot />
             <!-- slot serves to specific were a element html is coming from the place this is imported whould be -->
-            <button @click="handleHideModal">Hide Modal</button> <!--  this serves to dispute an event in action on template -->
+            <button @click="handleHideModal">Hide Modal</button>
+            <!--  this serves to dispute an event in action on template -->
 
         </div>
     </Teleport>
@@ -16,6 +17,10 @@
 import { ref } from 'vue'
 // How to create Props
 const props = defineProps({
+    modelValue: {
+        type: Boolean,
+        default: false,
+    },
     title: {
         type: String,
         default: "no title",
