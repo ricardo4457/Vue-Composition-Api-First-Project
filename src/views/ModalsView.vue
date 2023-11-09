@@ -2,15 +2,21 @@
     <main>
         <div class="modals">
             <p>Modal</p>
+            <div>
+                <label>Show dark modals</label>
+                <input v-modal="showDarkModals" type="checkbox" />
+            </div>
             <button @click="showModal = true">Show Modal</button>
-            <Modal v-model="showModal" title="My modal title (via prop)">  <!-- using update we longer need to call the value  because is getting passed on v-model -->      
-                  <!-- prop on template⬆️ -->      
+            <!-- Dynamic Component -->
+            <component v-model="showModal" :is="Modal" title="My modal title (via prop)">
+                <!-- using update we longer need to call the value  because is getting passed on v-model -->
+                <!-- prop on template⬆️ -->
                 <!-- implementation of html in slot to children -->
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, non, in consequatur consectetur
                     error
                     vero itaque, optio nam praesentium veritatis aliquam cumque earum culpa quisquam illo ipsam labore
                     voluptatibus? Aspernatur.</p>
-            </Modal>
+            </component>
         </div>
     </main>
 </template>
@@ -20,6 +26,7 @@ import { ref } from "vue"
 import Modal from '@/components/Modal.vue'
 
 //Variables
+const showDarkModals = ref(false)
 const showModal = ref(false)
 
 </script>
