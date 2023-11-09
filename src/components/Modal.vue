@@ -8,13 +8,15 @@
             <!-- slot serves to specific were a element html is coming from the place this is imported whould be -->
             <button @click="$emit('update:modelValue')">Hide Modal</button> <!--  emits event on template -->
             <!--  this serves to dispute an event in action on template -->
-            <div>Username is : {{ userData.username }}</div> <!--display username -->
+            <div>
+                Username is : {{ userData.username }}
+            </div>
         </div>
     </Teleport>
 </template>
 <script lang="ts" setup>
 //Imports
-import { ref } from 'vue'
+import { ref, inject, provide } from 'vue'
 // How to create Props
 const props = defineProps({
     modelValue: {       // this is the v-model passed prop
@@ -25,11 +27,12 @@ const props = defineProps({
         type: String,
         default: "no title",
     },
-    userData: { // props for user data
-        type: Object,
-        default: null,
-    },
+
 }) // Define Props to be used on other component
+
+// Data
+
+const userData = inject('userData')
 
 console.log(props.title); // this is how to access props on script
 

@@ -7,7 +7,7 @@
     <RouterLink to="/posts">Posts</RouterLink>
     <RouterLink to="/modals">Modals</RouterLink>
   </nav>
-  <RouterView :userData="userData" />       <!-- passing user data to current view on route -->
+  <RouterView /> <!-- passing user data to current view on route -->
   <!-- we can use is  onActivated, onDeactivated  if component is wrapp on this tags like this !!
     <RouterView v-slot="{ Component }">
           <keepalive>
@@ -19,11 +19,13 @@
 
 <script  lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { reactive } from "vue";
+import { reactive, provide } from "vue";
 const userData = reactive({
   name: "Ricardo",
   username: "ric12",
 })
+provide('userData', userData) // available userData for all children
+
 </script>
 
 <style scoped>

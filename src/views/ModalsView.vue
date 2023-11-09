@@ -8,8 +8,7 @@
             </div>
             <button @click="showModal = true">Show Modal</button>
             <!-- Dynamic Component -->
-            <component :userData="userData" v-model="showModal" :is="showDarkModals ? ModalDark : Modal"
-                title="My modal title (via prop)">
+            <component v-model="showModal" :is="showDarkModals ? ModalDark : Modal" title="My modal title (via prop)">
                 <!-- passing user data to dynamic component -->
                 <!--Condition to check witch component gets called -->
                 <!-- using update we longer need to call the value  because is getting passed on v-model -->
@@ -32,13 +31,6 @@ import ModalDark from '@/components/ModalDark.vue'
 const showDarkModals = ref(false)
 const showModal = ref(false)
 
-// Props 
-
-const props = defineProps({
-    userData: {
-        type: Object,
-    },
-})
 </script>
 <style scoped>
 @media (min-width: 1024px) {
