@@ -3,8 +3,8 @@
         <div class="modals">
             <p>Modal</p>
             <button @click="showModal = true">Show Modal</button>
-            <Modal v-model="showModal" title="My modal title (via prop)"    @hideModal="showModal= false"    > 
-                                     <!-- prop on template⬆️ -->        <!-- emitted by the modal event on template⬆️--> 
+            <Modal v-model="showModal" title="My modal title (via prop)">  <!-- using update we longer need to call the value  because is getting passed on v-model -->      
+                  <!-- prop on template⬆️ -->      
                 <!-- implementation of html in slot to children -->
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, non, in consequatur consectetur
                     error
