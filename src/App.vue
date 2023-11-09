@@ -1,22 +1,30 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
+  <div class="user-data">
+    {{ userData.name }} @ {{ userData.username }}
+  </div>
   <nav>
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/posts">Posts</RouterLink>
-  <RouterLink to="/modals">Modals</RouterLink>
-</nav>
-<RouterView />
-<!-- we can use is  onActivated, onDeactivated  if component is wrapp on this tags like this !!
-  <RouterView v-slot="{ Component }">
-        <keepalive>
-          <component :is="Component" />
-        </keepalive>
-      </RouterView>
-       -->
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/posts">Posts</RouterLink>
+    <RouterLink to="/modals">Modals</RouterLink>
+  </nav>
+  <RouterView :userData="userData" />       <!-- passing user data to current view on route -->
+  <!-- we can use is  onActivated, onDeactivated  if component is wrapp on this tags like this !!
+    <RouterView v-slot="{ Component }">
+          <keepalive>
+                <component :is="Component" />
+                </keepalive>
+              </RouterView>
+               -->
 </template>
+
+<script  lang="ts" setup>
+import { RouterLink, RouterView } from 'vue-router'
+import { reactive } from "vue";
+const userData = reactive({
+  name: "Ricardo",
+  username: "ric12",
+})
+</script>
 
 <style scoped>
 header {
