@@ -6,7 +6,7 @@
             <!--this serves to pass the content to other component were we shpuld specificy what we want -->
             <slot />
             <!-- slot serves to specific were a element html is coming from the place this is imported whould be -->
-            <button @click="$emit('hideModal')">Hide Modal</button> <!--  this serves to dispute an event in action on template -->
+            <button @click="handleHideModal">Hide Modal</button> <!--  this serves to dispute an event in action on template -->
 
         </div>
     </Teleport>
@@ -27,6 +27,11 @@ console.log(props.title); // this is how to access props on script
 // Define Emits to target events
 
 const emit = defineEmits(['hideModal'])
+
+//Methods
+const handleHideModal = () => {
+    emit('hideModal');
+}
 
 </script>
 <style scoped>
