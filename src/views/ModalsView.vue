@@ -8,7 +8,7 @@
             </div>
             <button @click="showModal = true">Show Modal</button>
             <!-- Dynamic Component -->
-            <component v-model="showModal" :is="Modal" title="My modal title (via prop)">
+             <component v-model="showModal" :is="showDarkModals ? ModalDark : Modal" title="My modal title (via prop)"> <!--Condition to check witch component gets called -->
                 <!-- using update we longer need to call the value  because is getting passed on v-model -->
                 <!-- prop on template⬆️ -->
                 <!-- implementation of html in slot to children -->
@@ -24,7 +24,7 @@
 //Imports
 import { ref } from "vue"
 import Modal from '@/components/Modal.vue'
-
+import ModalDark from '@/components/ModalDark.vue'
 //Variables
 const showDarkModals = ref(false)
 const showModal = ref(false)
